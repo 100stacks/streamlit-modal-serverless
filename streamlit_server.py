@@ -20,13 +20,9 @@ print('*****************')
 print(f'Local path: {streamlit_script_local_path}')
 print('*****************')
 streamlit_script_remote_path = Path("/root/app.py")
-#streamlit_script_remote_path = Path(__file__).parent / "app.py"
-#streamlit_script_remote_path = Path("./app/app.py")
 
 print('*****************')
-print('*****************')
 print(f'remote path: {streamlit_script_local_path}')
-print('*****************')
 print('*****************')
 
 if not streamlit_script_local_path.exists():

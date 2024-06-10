@@ -10,16 +10,13 @@ def main():
     import pandas as pd
     import streamlit as st
 
-    st.title("Uber pickups in NYC! (Streamlit provided dataset)")
+    st.title("Uber pickups in NYC!")
 
-    DATE_COLUMN = "data/time"
+    DATE_COLUMN = "date/time"
     DATA_URL = (
         "https://s3-us-west-2.amazonaws.com/"
         "streamlit-demo-data/uber-raw-data-sep14.csv.gz"
     )
-    print('***** data url *****')
-    print(DATA_URL)
-    print('***** data url *****')
 
     @st.cache_data
     def load_data(nrows):
@@ -47,12 +44,12 @@ def main():
     )[0]
     st.bar_chart(hist_values)
 
-    # Some bumer in the range 0-23
+    # Some number in the range 0-23
     hour_to_filter = st.slider("hour", 0, 23, 17)
-    filterd_data = data[data[DATE_COLUMN].dt.hour == hour_to_filter]
+    filtered_data = data[data[DATE_COLUMN].dt.hour == hour_to_filter]
 
     st.subheader("Map of all pickups at %s:00" % hour_to_filter)
-    st.map(filterd_data)
+    st.map(filtered_data)
 
 if __name__ == "__main__":
     main()
