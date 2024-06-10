@@ -19,7 +19,7 @@ streamlit_script_local_path = Path(__file__).parent / "app.py"
 print('*****************')
 print(f'Local path: {streamlit_script_local_path}')
 print('*****************')
-streamlit_script_remote_path = Path("/root/app")
+streamlit_script_remote_path = Path("/root/app.py")
 #streamlit_script_remote_path = Path(__file__).parent / "app.py"
 #streamlit_script_remote_path = Path("./app/app.py")
 
@@ -34,9 +34,9 @@ if not streamlit_script_local_path.exists():
         "app.py not found! Check your directory structure."
     )
 
-streamlit_script_mount = modal.Mount.from_local_dir(
+streamlit_script_mount = modal.Mount.from_local_file(
     streamlit_script_local_path,
-    remote_path=streamlit_script_remote_path,
+    streamlit_script_remote_path,
 )
 
 # Instantiate the Streamlit server
