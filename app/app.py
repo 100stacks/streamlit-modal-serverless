@@ -14,7 +14,7 @@ def main():
 
     DATE_COLUMN = "data/time"
     DATA_URL = (
-        "https://s3-us-west-2.amazonaws.com"
+        "https://s3-us-west-2.amazonaws.com/"
         "streamlit-demo-data/uber-raw-data-sep14.csv.gz"
     )
 
@@ -31,7 +31,7 @@ def main():
         return data
 
     data_load_state = st.text("Loading data...")
-    data = load_data(100000)
+    data = load_data(10000)
     data_load_state.text("Done! (using st.cache_data)")
 
     if st.checkbox("Show raw data"):
